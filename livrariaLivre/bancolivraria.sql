@@ -6,6 +6,7 @@ create table cliente
         nome varchar (11) not null,
         endereco varchar(20),
         email varchar(20),
+        CPF varchar(11) not null,
         primary key(id_cliente)
         );
 
