@@ -7,6 +7,8 @@ create table cliente
         endereco varchar(20),
         email varchar(20),
         CPF varchar(11) not null,
+        telefone varchar(14),
+        Data_cadastro datetime, 
         primary key(id_cliente)
         );
 
@@ -24,6 +26,7 @@ create table vendedor
 	(
 		id_vendedor int(5) auto_increment,
         nome varchar(11) not null,
+        cargo varchar(20),
         email varchar(20),
         celular varchar(14),
         primary key(id_vendedor)
@@ -37,6 +40,7 @@ create table pagamento
         formaPagamento varchar(11) not null,
         notaFiscal int(20),
         celular varchar(14),
+        dataemissaoNF datetime,
         primary key(id_pagamento),
         foreign key(id_pedido) references pedido(id_pedido),
         foreign key(id_cliente) references cliente(id_cliente)
@@ -44,10 +48,12 @@ create table pagamento
         
         create table livro
 	(
-		id_ISBN int(13) not null,
+		id_livro int(5) auto_increment,
+        ISBN int(13) not null,
         nomeLivro varchar(40) not null,
         autor varchar(40),
-        editora varchar(15)
+        editora varchar(15),
+        primary key(id_livro)
         );
         
 show tables;
