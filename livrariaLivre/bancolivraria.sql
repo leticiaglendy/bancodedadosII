@@ -8,7 +8,7 @@ create table cliente
         email varchar(20),
         CPF varchar(11) not null,
         telefone varchar(14),
-        Data_cadastro datetime, 
+        dataCadastro datetime, 
         primary key(id_cliente)
         );
         
@@ -30,7 +30,7 @@ create table pedido
         id_cliente int(5),
         id_livro int(5),
         descricao varchar(11) not null,
-        datapedido varchar(11) not null,
+        dataPedido varchar(11) not null,
         quantidadeItens int(5) not null,
         primary key(id_pedido),
         foreign key(id_cliente) references cliente(id_cliente),
@@ -55,7 +55,7 @@ create table pagamento
         formaPagamento varchar(11) not null,
         notaFiscal int(20),
         celular varchar(14),
-        dataemissaoNF datetime,
+        dataEmissaoNF datetime,
         primary key(id_pagamento),
         foreign key(id_pedido) references pedido(id_pedido),
         foreign key(id_cliente) references cliente(id_cliente)
@@ -65,7 +65,7 @@ show tables;
 
 -- insert das tabelas
 
-insert into cliente (nome, endereco, email, CPF, telefone, Data_cadastro)
+insert into cliente (nome, endereco, email, CPF, telefone, dataCadastro)
 values
 ('Beatriz Martins', 'Rua das Oliveiras, 808, Campinas, SP', 'beatriz.martins@example.com', '123.456.789-01', '(19) 92345-6789', '2024-09-11'),
 ('Eduardo Lima', 'Av. Brasil, 909, São José dos Campos, SP', 'eduardo.lima@example.com', '234.567.890-12', '(12) 93456-7890', '2024-09-12'),
@@ -153,3 +153,97 @@ values
 ('978-1-250-26365-8', 'The Paris Library', 'Janet Skeslien Charles', 'Atria Books', 'Histórico', 31.90),
 ('978-0-06-290721-1', 'Little Fires Everywhere', 'Celeste Ng', 'Penguin Press', 'Drama', 28.90),
 ('978-0-316-55653-7', 'The Seven Husbands of Evelyn Hugo', 'Taylor Jenkins Reid', 'Atria Books', 'Romance', 35.90);
+
+insert into pedido(id_cliente, id_livro, descricao, datapedido, quantidadeItens)
+values
+(1, 5, 'Promoção de Setembro', '2024-09-01', 4),
+(2, 12, 'Edição Especial', '2024-09-02', 3),
+(3, 23, 'Lançamento Novo', '2024-09-03', 2),
+(4, 30, 'Coleção Completa', '2024-09-04', 6),
+(5, 7, 'Desconto Exclusivo', '2024-09-05', 5),
+(6, 18, 'Livro Popular', '2024-09-06', 1),
+(7, 22, 'Melhor Compra', '2024-09-07', 8),
+(8, 9, 'Oferta Limitada', '2024-09-08', 3),
+(9, 15, 'Novidade Literária', '2024-09-09', 7),
+(10, 28, 'Top Vendas', '2024-09-10', 4),
+(11, 3, 'Reedição Exclusiva', '2024-09-11', 6),
+(12, 21, 'Desconto de Fim de Ano', '2024-09-12', 2),
+(13, 14, 'Promoção de Outono', '2024-09-13', 5),
+(14, 37, 'Lançamento Imperdível', '2024-09-14', 3),
+(15, 20, 'Compra Especial', '2024-09-15', 8),
+(16, 8, 'Livro Recomendado', '2024-09-16', 4),
+(17, 25, 'Oferta de Mercado', '2024-09-17', 2),
+(18, 10, 'Edição Limitada', '2024-09-18', 7),
+(19, 26, 'Novidade do Mês', '2024-09-19', 1),
+(20, 32, 'Coleção Literária', '2024-09-20', 6),
+(21, 13, 'Oferta Exclusiva', '2024-09-21', 3),
+(22, 27, 'Desconto Especial', '2024-09-22', 5),
+(23, 19, 'Compra do Mês', '2024-09-23', 8),
+(24, 33, 'Promoção Anual', '2024-09-24', 4),
+(25, 11, 'Reedição Especial', '2024-09-25', 7),
+(26, 24, 'Lançamento Novo', '2024-09-26', 2),
+(27, 50, 'Promoção do Ano', '2024-09-27', 6),
+(28, 17, 'Desconto de Aniversário', '2024-09-28', 3),
+(29, 39, 'Ofertas Imperdíveis', '2024-09-29', 8),
+(30, 46, 'Livro Recomendado', '2024-09-30', 5),
+(1, 4, 'Oferta Especial', '2024-10-01', 2),
+(2, 38, 'Desconto Exclusivo', '2024-10-02', 4),
+(3, 45, 'Promoção Literária', '2024-10-03', 6),
+(4, 6, 'Coleção de Fim de Ano', '2024-10-04', 3),
+(5, 40, 'Novidade Imperdível', '2024-10-05', 7),
+(6, 16, 'Reedição de Clássico', '2024-10-06', 5),
+(7, 48, 'Compra de Aniversário', '2024-10-07', 2),
+(8, 43, 'Livro de Destaque', '2024-10-08', 8),
+(9, 47, 'Edição Especial', '2024-10-09', 3),
+(10, 49, 'Oferta Exclusiva', '2024-10-10', 4);
+
+insert into vendedor(nome, cargo, email, celular)
+values
+('Maria Lima', 'Vendedor', 'maria@ex.com', '2345-6789'),
+('Fernanda', 'Vendedor', 'fernan@ex.com', '6789-0123'),
+('Roberto', 'Vendedor', 'roberto@ex.com', '9012-3456'),
+('Camila', 'Vendedor', 'camila@ex.com', '2345-6790'),
+('Tatiane', 'Vendedor', 'tatiane@ex.com', '6789-0234'),
+('Gustavo', 'Supervisor', 'gustavo@ex.com', '7890-1345'),
+('Eduardo', 'Gerente', 'eduardo@ex.com', '9012-3567'),
+('Sofia', 'Vendedor', 'sofia@ex.com', '0123-4678'),
+('Marcos', 'Vendedor', 'marcos@ex.com', '3456-7902'),
+('Juliana', 'Vendedor', 'juliana@ex.com', '6789-0235'),
+('Amanda', 'Vendedor', 'amanda@ex.com', '0123-4679'),
+('Pedro Souza', 'Vendedor', 'pedro@ex.com', '3456-7890'),
+('Ana Costa', 'Vendedor', 'ana@ex.com', '4567-8901'),
+('Carlos Lima', 'Vendedor', 'carlos@ex.com', '5678-9012'),
+('Juliana', 'Vendedor', 'julia@ex.com', '8901-2345');
+
+insert into pagamento(id_pedido, id_cliente, formaPagamento, notaFiscal, celular, dataEmissaoNF)
+values
+(1, 1, 'Cartão de Crédito', 100001, '1234-5678', '2024-09-01 10:00:00'),
+(2, 2, 'Boleto', 100002, '2345-6789', '2024-09-02 11:15:00'),
+(3, 3, 'Débito', 100003, '3456-7890', '2024-09-03 12:30:00'),
+(4, 4, 'Pix', 100004, '4567-8901', '2024-09-04 13:45:00'),
+(5, 5, 'Cartão de Crédito', 100005, '5678-9012', '2024-09-05 14:00:00'),
+(6, 6, 'Boleto', 100006, '6789-0123', '2024-09-06 15:30:00'),
+(7, 7, 'Débito', 100007, '7890-1234', '2024-09-07 16:15:00'),
+(8, 8, 'Pix', 100008, '8901-2345', '2024-09-08 17:00:00'),
+(9, 9, 'Cartão de Crédito', 100009, '9012-3456', '2024-09-09 18:45:00'),
+(10, 10, 'Boleto', 100010, '0123-4567', '2024-09-10 19:30:00'),
+(11, 11, 'Débito', 100011, '1234-5679', '2024-09-11 20:15:00'),
+(12, 12, 'Pix', 100012, '2345-6780', '2024-09-12 21:00:00'),
+(13, 13, 'Cartão de Crédito', 100013, '3456-7891', '2024-09-13 22:45:00'),
+(14, 14, 'Boleto', 100014, '4567-8902', '2024-09-14 23:30:00'),
+(15, 15, 'Débito', 100015, '5678-9013', '2024-09-15 10:00:00'),
+(16, 16, 'Pix', 100016, '6789-0124', '2024-09-16 11:15:00'),
+(17, 17, 'Cartão de Crédito', 100017, '7890-1235', '2024-09-17 12:30:00'),
+(18, 18, 'Boleto', 100018, '8901-2346', '2024-09-18 13:45:00'),
+(19, 19, 'Débito', 100019, '9012-3457', '2024-09-19 14:00:00'),
+(20, 20, 'Pix', 100020, '0123-4568', '2024-09-20 15:30:00'),
+(21, 21, 'Cartão de Crédito', 100021, '1234-5670', '2024-09-21 16:15:00'),
+(22, 22, 'Boleto', 100022, '2345-6781', '2024-09-22 17:00:00'),
+(23, 23, 'Débito', 100023, '3456-7892', '2024-09-23 18:45:00'),
+(24, 24, 'Pix', 100024, '4567-8903', '2024-09-24 19:30:00'),
+(25, 25, 'Cartão de Crédito', 100025, '5678-9014', '2024-09-25 20:15:00'),
+(26, 26, 'Boleto', 100026, '6789-0125', '2024-09-26 21:00:00'),
+(27, 27, 'Débito', 100027, '7890-1236', '2024-09-27 22:45:00'),
+(28, 28, 'Pix', 100028, '8901-2347', '2024-09-28 23:30:00'),
+(29, 29, 'Cartão de Crédito', 100029, '9012-3458', '2024-09-29 10:00:00'),
+(30, 30, 'Boleto', 100030, '0123-4569', '2024-09-30 11:15:00');
