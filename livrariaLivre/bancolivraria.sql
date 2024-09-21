@@ -10,7 +10,7 @@ create table cliente
         sexo enum('feminino', 'masculino'),
         CPF varchar(11) not null,
         telefone varchar(14),
-        dataCadastro datetime, 
+        dataCadastro date, 
         primary key(id_cliente)
         );
         
