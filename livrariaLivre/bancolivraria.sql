@@ -7,6 +7,7 @@ create table cliente
         nome varchar (30) not null,
         endereco varchar(50),
         email varchar(30),
+        sexo enum('feminino', 'masculino'),
         CPF varchar(11) not null,
         telefone varchar(14),
         dataCadastro datetime, 
@@ -66,39 +67,40 @@ show tables;
 
 -- insert das tabelas
 
-INSERT INTO cliente (nome, endereco, email, CPF, telefone, dataCadastro)
+INSERT INTO cliente (nome, endereco, email, sexo, CPF, telefone, dataCadastro)
 VALUES
-('Beatriz Martins', 'Rua das Oliveiras, 808, Campinas, SP', 'beatriz.martins@example.com', '12345678901', '19923456789', '2024-09-11'),
-('Eduardo Lima', 'Av. Brasil, 909, São José dos Campos, SP', 'eduardo.lima@example.com', '23456789012', '12934567890', '2024-09-12'),
-('Juliana Costa', 'Rua dos Lírios, 2323, Sorocaba, SP', 'juliana.costa@example.com', '34567890123', '11967890123', '2024-09-13'),
-('Pedro Gonçalves', 'Rua dos Girassóis, 1111, Santo André, SP', 'pedro.goncalves@example.com', '45678901234', '11912345678', '2024-09-14'),
-('Sofia Almeida', 'Av. Getúlio Vargas, 1212, Osasco, SP', 'sofia.almeida@example.com', '56789012345', '11923456789', '2024-09-15'),
-('Ricardo Nascimento', 'Rua das Palmeiras, 1313, Guarulhos, SP', 'ricardo.nascimento@example.com', '67890123456', '11934567890', '2024-09-16'),
-('Camila Oliveira', 'Rua do Bosque, 1414, Ribeirão Preto, SP', 'camila.oliveira@example.com', '78901234567', '16967890123', '2024-09-17'),
-('Bruno Andrade', 'Rua do Comércio, 1515, Bauru, SP', 'bruno.andrade@example.com', '89012345678', '14912345678', '2024-09-18'),
-('Tatiane Rodrigues', 'Av. Independência, 1616, Marília, SP', 'tatiane.rodrigues@example.com', '90123456789', '14923456789', '2024-09-19'),
-('Daniela Vieira', 'Rua das Acácias, 1717, São Carlos, SP', 'daniela.vieira@example.com', '01234567890', '16934567890', '2024-09-20'),
-('Marcos Ferreira', 'Rua das Laranjeiras, 1818, Campinas, SP', 'marcos.ferreira@example.com', '12345678911', '19965432109', '2024-09-21'),
-('Fernanda Pinto', 'Av. da Liberdade, 1919, São Paulo, SP', 'fernanda.pinto@example.com', '23456789022', '11976543210', '2024-09-22'),
-('Roberto Silva', 'Rua dos Jasmins, 2020, Santos, SP', 'roberto.silva@example.com', '34567890133', '13945678901', '2024-09-23'),
-('Patrícia Almeida', 'Rua das Acácias, 2121, Mogi das Cruzes, SP', 'patricia.almeida@example.com', '45678901244', '11934567890', '2024-09-24'),
-('Thiago Costa', 'Av. das Nações, 2222, São Bernardo do Campo, SP', 'thiago.costa@example.com', '56789012355', '11912345678', '2024-09-25'),
-('Juliana Campos', 'Rua dos Lírios, 2323, Sorocaba, SP', 'juliana.campos@example.com', '67890123466', '15923456789', '2024-09-26'),
-('André Oliveira', 'Rua dos Pinheiros, 2424, São José dos Campos, SP', 'andre.oliveira@example.com', '78901234577', '12934567890', '2024-09-27'),
-('Viviane Almeida', 'Av. do Sol, 2525, Atibaia, SP', 'viviane.almeida@example.com', '89012345688', '11945678901', '2024-09-28'),
-('Eduardo Martins', 'Rua das Hortências, 2626, Jundiaí, SP', 'eduardo.martins@example.com', '90123456799', '11956789012', '2024-09-29'),
-('Samantha Ribeiro', 'Rua das Flores, 2727, Americana, SP', 'samantha.ribeiro@example.com', '01234567810', '19967890123', '2024-09-30'),
-('Rafael Souza', 'Rua dos Cardos, 2828, Bertioga, SP', 'rafael.souza@example.com', '12345678922', '13978901234', '2024-10-01'),
-('Marcela Lima', 'Av. Aclimação, 2929, Praia Grande, SP', 'marcela.lima@example.com', '23456789033', '13965432109', '2024-10-02'),
-('Gustavo Ferreira', 'Rua dos Jardins, 3030, Guarujá, SP', 'gustavo.ferreira@example.com', '34567890144', '13934567890', '2024-10-03'),
-('Camila Nunes', 'Av. Carlos Gomes, 3131, São Vicente, SP', 'camila.nunes@example.com', '45678901255', '13912345678', '2024-10-04'),
-('Leonardo Martins', 'Rua do Lago, 3232, Cotia, SP', 'leonardo.martins@example.com', '56789012366', '11945678901', '2024-10-05'),
-('Larissa Costa', 'Rua das Palmeiras, 3333, Carapicuíba, SP', 'larissa.costa@example.com', '67890123477', '11956789012', '2024-10-06'),
-('Felipe Rodrigues', 'Rua do Bosque, 3434, Taboão da Serra, SP', 'felipe.rodrigues@example.com', '78901234588', '11967890123', '2024-10-07'),
-('Ana Carolina', 'Av. Paulista, 3535, São Paulo, SP', 'ana.carolina@example.com', '89012345699', '11978901234', '2024-10-08'),
-('Jorge Lima', 'Rua dos Girassóis, 3636, São Caetano do Sul, SP', 'jorge.lima@example.com', '90123456710', '11989012345', '2024-10-09'),
-('Isabela Oliveira', 'Rua das Acácias, 3737, São João da Boa Vista, SP', 'isabela.oliveira@example.com', '01234567821', '19945678901', '2024-10-10'),
-('Roberta Pereira', 'Rua das Orquídeas, 3838, Bauru, SP', 'roberta.pereira@example.com', '12345678932', '14934567890', '2024-10-11');
+('Beatriz Martins', 'Rua das Oliveiras, 808, Campinas, SP', 'beatriz.martins@example.com', 'feminino', '12345678901', '19923456789', '2024-09-11'),
+('Eduardo Lima', 'Av. Brasil, 909, São José dos Campos, SP', 'eduardo.lima@example.com', 'masculino', '23456789012', '12934567890', '2024-09-12'),
+('Juliana Costa', 'Rua dos Lírios, 2323, Sorocaba, SP', 'juliana.costa@example.com', 'feminino', '34567890123', '11967890123', '2024-09-13'),
+('Pedro Gonçalves', 'Rua dos Girassóis, 1111, Santo André, SP', 'pedro.goncalves@example.com', 'masculino', '45678901234', '11912345678', '2024-09-14'),
+('Sofia Almeida', 'Av. Getúlio Vargas, 1212, Osasco, SP', 'sofia.almeida@example.com', 'feminino', '56789012345', '11923456789', '2024-09-15'),
+('Ricardo Nascimento', 'Rua das Palmeiras, 1313, Guarulhos, SP', 'ricardo.nascimento@example.com', 'masculino', '67890123456', '11934567890', '2024-09-16'),
+('Camila Oliveira', 'Rua do Bosque, 1414, Ribeirão Preto, SP', 'camila.oliveira@example.com', 'feminino', '78901234567', '16967890123', '2024-09-17'),
+('Bruno Andrade', 'Rua do Comércio, 1515, Bauru, SP', 'bruno.andrade@example.com', 'masculino', '89012345678', '14912345678', '2024-09-18'),
+('Tatiane Rodrigues', 'Av. Independência, 1616, Marília, SP', 'tatiane.rodrigues@example.com', 'feminino', '90123456789', '14923456789', '2024-09-19'),
+('Daniela Vieira', 'Rua das Acácias, 1717, São Carlos, SP', 'daniela.vieira@example.com', 'feminino', '01234567890', '16934567890', '2024-09-20'),
+('Marcos Ferreira', 'Rua das Laranjeiras, 1818, Campinas, SP', 'marcos.ferreira@example.com', 'masculino', '12345678911', '19965432109', '2024-09-21'),
+('Fernanda Pinto', 'Av. da Liberdade, 1919, São Paulo, SP', 'fernanda.pinto@example.com', 'feminino', '23456789022', '11976543210', '2024-09-22'),
+('Roberto Silva', 'Rua dos Jasmins, 2020, Santos, SP', 'roberto.silva@example.com', 'masculino', '34567890133', '13945678901', '2024-09-23'),
+('Patrícia Almeida', 'Rua das Acácias, 2121, Mogi das Cruzes, SP', 'patricia.almeida@example.com', 'feminino', '45678901244', '11934567890', '2024-09-24'),
+('Thiago Costa', 'Av. das Nações, 2222, São Bernardo do Campo, SP', 'thiago.costa@example.com', 'masculino', '56789012355', '11912345678', '2024-09-25'),
+('Juliana Campos', 'Rua dos Lírios, 2323, Sorocaba, SP', 'juliana.campos@example.com', 'feminino', '67890123466', '15923456789', '2024-09-26'),
+('André Oliveira', 'Rua dos Pinheiros, 2424, São José dos Campos, SP', 'andre.oliveira@example.com', 'masculino', '78901234577', '12934567890', '2024-09-27'),
+('Viviane Almeida', 'Av. do Sol, 2525, Atibaia, SP', 'viviane.almeida@example.com', 'feminino', '89012345688', '11945678901', '2024-09-28'),
+('Eduardo Martins', 'Rua das Hortências, 2626, Jundiaí, SP', 'eduardo.martins@example.com', 'masculino', '90123456799', '11956789012', '2024-09-29'),
+('Samantha Ribeiro', 'Rua das Flores, 2727, Americana, SP', 'samantha.ribeiro@example.com', 'feminino', '01234567810', '19967890123', '2024-09-30'),
+('Rafael Souza', 'Rua dos Cardos, 2828, Bertioga, SP', 'rafael.souza@example.com', 'masculino', '12345678922', '13978901234', '2024-10-01'),
+('Marcela Lima', 'Av. Aclimação, 2929, Praia Grande, SP', 'marcela.lima@example.com', 'feminino', '23456789033', '13965432109', '2024-10-02'),
+('Gustavo Ferreira', 'Rua dos Jardins, 3030, Guarujá, SP', 'gustavo.ferreira@example.com', 'masculino', '34567890144', '13934567890', '2024-10-03'),
+('Camila Nunes', 'Av. Carlos Gomes, 3131, São Vicente, SP', 'camila.nunes@example.com', 'feminino', '45678901255', '13912345678', '2024-10-04'),
+('Leonardo Martins', 'Rua do Lago, 3232, Cotia, SP', 'leonardo.martins@example.com', 'masculino', '56789012366', '11945678901', '2024-10-05'),
+('Larissa Costa', 'Rua das Palmeiras, 3333, Carapicuíba, SP', 'larissa.costa@example.com', 'feminino', '67890123477', '11956789012', '2024-10-06'),
+('Felipe Rodrigues', 'Rua do Bosque, 3434, Taboão da Serra, SP', 'felipe.rodrigues@example.com', 'masculino','78901234588', '11967890123', '2024-10-07'),
+('Ana Carolina', 'Av. Paulista, 3535, São Paulo, SP', 'ana.carolina@example.com', 'feminino','89012345699', '11978901234', '2024-10-08'),
+('Jorge Lima', 'Rua dos Girassóis, 3636, São Caetano do Sul, SP', 'jorge.lima@example.com', 'masculino', '90123456710',  '11989012345', '2024-10-09'),
+('Isabela Oliveira', 'Rua das Acácias, 3737, São João da Boa Vista, SP', 'isabela.oliveira@example.com', 'feminino', '01234567821', '19945678901', '2024-10-10'),
+('Roberta Pereira', 'Rua das Orquídeas, 3838, Bauru, SP', 'roberta.pereira@example.com', 'feminino', '12345678932', '14934567890', '2024-10-11');
+
 
 
 INSERT INTO livro (ISBN, titulo, autor, editora, genero, preco)
@@ -249,6 +251,3 @@ values
 (28, 28, 'Pix', 100028, '8901-2347', '2024-09-28 23:30:00'),
 (29, 29, 'Cartão de Crédito', 100029, '9012-3458', '2024-09-29 10:00:00'),
 (30, 30, 'Boleto', 100030, '0123-4569', '2024-09-30 11:15:00');
-
-drop database livraria;
-drop table livro;
