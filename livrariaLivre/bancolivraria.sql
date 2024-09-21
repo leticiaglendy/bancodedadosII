@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS livraria; 
 create database livraria;
 use livraria;
 create table cliente
